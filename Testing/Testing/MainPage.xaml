@@ -25,6 +25,12 @@
             Clicked="btnCheckUrl_Clicked"
             BackgroundColor="{StaticResource PrimaryColor}"
          />
+        
+        <Button x:Name="btnProperties"
+            Text="Check Properties"
+            Clicked="btnProperties_Clicked"
+            BackgroundColor="{StaticResource PrimaryColor}"
+         />
 
     </StackLayout>
     
