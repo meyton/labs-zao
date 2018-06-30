@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,11 @@ namespace Testing.Data
             return await database.Table<T>().ToListAsync();
         }
 
+        public async Task<List<Student>> GetStudentsByClassID(int id)
+        {
+            return await database.Table<Student>().Where(x => x.ClassID == id).ToListAsync();
+        }
+
         public async Task<T> GetItemByID<T>(int id) where T : class, ISqliteModel, new()
         {
             return await database.Table<T>().Where(x => x.ID == id).FirstOrDefaultAsync();
@@ -30,8 +36,17 @@ namespace Testing.Data
 
         public async Task<int> SaveItem<T>(T item)
         {
-            return await database.InsertOrReplaceAsync(item);
+            var result = await database.UpdateAsync(item);
+
+            if (result == 0)
+                result = await database.InsertAsync(item);
+
+            return result;
         }
 
+        public async Task<int> DeleteItem<T>(T item)
+        {
+            return await database.DeleteAsync(item);
+        }
     }
 }

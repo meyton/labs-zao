@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Testing.ClassesPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Classes"
+                HorizontalOptions="CenterAndExpand" Margin="8" />
+            <Button Text="Add new class" Clicked="Button_Clicked" Margin="16" />
+            <ListView x:Name="lvItems" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding ID}" TextColor="#3C3C3C"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

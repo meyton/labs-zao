@@ -10,8 +10,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="AddStudentPage.xaml.cs">
+      <DependentUpon>AddStudentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="StudentsPage.xaml.cs">
+      <DependentUpon>StudentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="WebViewPage.xaml.cs">
       <DependentUpon>WebViewPage.xaml</DependentUpon>
@@ -25,6 +31,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="AddClassPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ClassesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="EditStudentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="PropertiesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

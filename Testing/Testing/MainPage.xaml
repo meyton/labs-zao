@@ -24,6 +24,12 @@
             Text="Check Page in HttpClient"
             Clicked="btnCheckUrl_Clicked"
             BackgroundColor="{StaticResource PrimaryColor}"
+                />
+
+        <Button
+            Text="See Classes"
+            Clicked="Button_Clicked"
+            BackgroundColor="{StaticResource PrimaryColor}"
          />
         
         <Button x:Name="btnProperties"
