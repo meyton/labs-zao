@@ -38,6 +38,12 @@
             BackgroundColor="{StaticResource PrimaryColor}"
          />
 
+        <Button
+            Text="MVVM"
+            Clicked="btnProperties_Clicked_1"
+            BackgroundColor="{StaticResource PrimaryColor}"
+         />
+
     </StackLayout>
     
 </ContentPage>

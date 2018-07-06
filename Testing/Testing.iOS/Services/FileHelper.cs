@@ -17,8 +17,6 @@ namespace Testing.iOS.Services
             if (!Directory.Exists(libFolder))
             {
                 Directory.CreateDirectory(libFolder);
-
-                throw new NotImplementedException();
             }
 
             return Path.Combine(libFolder, filename);

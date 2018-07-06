@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Testing.Views.StudentDetailsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Text="{Binding FirstName}"
+                   WidthRequest="300"
+                HorizontalOptions="FillAndExpand" />
+            <Entry Text="{Binding LastName}"
+                   WidthRequest="300"
+                HorizontalOptions="FillAndExpand" />
+            <Entry Text="{Binding AlbumNumber}"
+                   WidthRequest="300"
+                HorizontalOptions="FillAndExpand" />
+            <Button Text="ADD" Command="{Binding SaveStudentCommand}" CommandParameter="ADD" Margin="20" />
+            <Button Text="UPDATE" Command="{Binding SaveStudentCommand}" CommandParameter="UPDATE" Margin="20" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

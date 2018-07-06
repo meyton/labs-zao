@@ -47,5 +47,10 @@ namespace Testing
         {
             await Navigation.PushAsync(new ClassesPage());
         }
+
+        private async void btnProperties_Clicked_1(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.ClassesPage());
+        }
     }
 }
