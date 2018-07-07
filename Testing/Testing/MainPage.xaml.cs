@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Plugin.Connectivity;
+using Plugin.Media;
+using Plugin.Share;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,6 +54,83 @@ namespace Testing
         private async void btnProperties_Clicked_1(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Views.ClassesPage());
+        }
+
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await CrossMedia.Current.Initialize();
+
+            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                await DisplayAlert("No Camera", ":( No camera available.", "OK");
+                return;
+            }
+
+            var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+            {
+                Directory = "Sample",
+                Name = "test.jpg",
+                SaveToAlbum = true
+            });
+
+            if (file == null)
+                return;
+            
+            img.Source = ImageSource.FromStream(() =>
+            {
+                var stream = file.GetStream();
+                return stream;
+            });
+        }
+
+        private async void Button_Clicked_2(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(entryUrl.Text))
+                return;
+
+            var compressionQuality = int.Parse(entryUrl.Text);
+
+            if (!CrossMedia.IsSupported)
+                return;
+
+            await CrossMedia.Current.Initialize();
+
+            if (!CrossMedia.Current.IsPickPhotoSupported)
+                return;
+
+            var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions()
+            {
+                CompressionQuality = compressionQuality,
+                SaveMetaData = true
+            });
+
+            if (file == null)
+                return;
+            
+            img.Source = ImageSource.FromFile(file.Path);
+
+            var st = file.GetStream();
+            await DisplayAlert("Size", $"Size is {st.Length}", "OK");
+        }
+
+        private void Button_Clicked_3(object sender, EventArgs e)
+        {
+            if (!CrossConnectivity.IsSupported)
+                return;
+
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                var types = CrossConnectivity.Current.ConnectionTypes;
+            }
+
+            if (!CrossShare.IsSupported)
+                return;
+
+            CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage()
+            {
+                Title = "Przepis na mięso",
+                Text = "[X] Sól i pieprz\n[ ] Mięso\n[ ] Sos"
+            });
         }
     }
 }

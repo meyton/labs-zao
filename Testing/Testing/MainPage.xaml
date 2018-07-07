@@ -4,46 +4,76 @@
              xmlns:local="clr-namespace:Testing"
              x:Class="Testing.MainPage">
 
-    <StackLayout>
+    <ScrollView>
+        <StackLayout>
 
-        <Label x:Name="lblTest"
+            <Label x:Name="lblTest"
         BackgroundColor="BlueViolet"
         Text="Welcome to Xamarin.Forms!"
         HorizontalOptions="Center"/>
 
-        <Entry x:Name="entryUrl"
+            <StackLayout Orientation="Horizontal">
+                <Image Aspect="AspectFit" Source="mobileicon.png"/>
+                <Image Aspect="AspectFit" Source="mobileicon.png"/>
+                <Image Aspect="AspectFit" Source="mobileicon.png"/>
+            </StackLayout>
+            <Image x:Name="img" Aspect="AspectFit" Source="mobileicon.png" HorizontalOptions="Start"/>
+
+            <Entry x:Name="entryUrl"
                Placeholder="Tutaj wpisz URL (wraz z https://)" />
-        
-        <Button x:Name="btnOpenUrl"
+
+            <Button x:Name="btnOpenUrl"
             Text="Open Page in WebView"
             Clicked="btnOpenUrl_Clicked"
             BackgroundColor="{StaticResource PrimaryColor}"
          />
 
-        <Button x:Name="btnCheckUrl"
+            <Button x:Name="btnCheckUrl"
             Text="Check Page in HttpClient"
             Clicked="btnCheckUrl_Clicked"
-            BackgroundColor="{StaticResource PrimaryColor}"
+            Image="mobileicon.png"
+            ContentLayout="Right"
                 />
 
-        <Button
+            <Button
             Text="See Classes"
             Clicked="Button_Clicked"
-            BackgroundColor="{StaticResource PrimaryColor}"
+            Image="mobileicon.png"
+            ContentLayout="Top"
          />
-        
-        <Button x:Name="btnProperties"
+
+            <Button x:Name="btnProperties"
             Text="Check Properties"
             Clicked="btnProperties_Clicked"
-            BackgroundColor="{StaticResource PrimaryColor}"
+            Image="mobileicon.png"
+            ContentLayout="Bottom"
          />
 
-        <Button
+            <Button
             Text="MVVM"
             Clicked="btnProperties_Clicked_1"
-            BackgroundColor="{StaticResource PrimaryColor}"
+            Image="mobileicon.png"
+            ContentLayout="Left"
          />
 
-    </StackLayout>
-    
+            <Button
+            Text="Take photo"
+            Clicked="Button_Clicked_1"
+            Image="mobileicon.png"
+         />
+
+            <Button
+            Text="Pick photo"
+            Clicked="Button_Clicked_2"
+            Image="mobileicon.png"
+         />
+            
+            <Button
+            Text="Share"
+            Clicked="Button_Clicked_3"
+            Image="mobileicon.png"
+         />
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
