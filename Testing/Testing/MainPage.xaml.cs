@@ -121,6 +121,7 @@ namespace Testing
             if (CrossConnectivity.Current.IsConnected)
             {
                 var types = CrossConnectivity.Current.ConnectionTypes;
+                
             }
 
             if (!CrossShare.IsSupported)
