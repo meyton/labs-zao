@@ -7,6 +7,19 @@
         <ResourceDictionary>
             <Color x:Key="PrimaryColor">#BBBBFF</Color>
 
+            <Style x:Key="TestButtonStyle" TargetType="Button">
+                <Setter Property="Margin" Value="0, 16" />
+                <Setter Property="BackgroundColor" Value="#0C74DA" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="TextColor" Value="WhiteSmoke" />
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="BorderColor" Value="#004C97" />
+                <Setter Property="BorderRadius" Value="0" />
+                <Setter Property="BorderWidth" Value="1" />
+            </Style>
+          
         </ResourceDictionary>
     </Application.Resources>
 </Application>
