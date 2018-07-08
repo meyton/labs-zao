@@ -20,6 +20,9 @@
                 <Setter Property="BorderWidth" Value="1" />
             </Style>
           
+          <!-- 
+                        <Button ... Style="{StaticResource TestButtonStyle}" ... />
+          -->
         </ResourceDictionary>
     </Application.Resources>
 </Application>
